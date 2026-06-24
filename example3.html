@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HaloPoint 3.0</title>
+    <style>
+:root{
+    --bg-deep:#0A0B10;
+    --bg-panel:#0F1118;
+    --bg-input:#181D2E;
+
+    --border-subtle:#22273A;
+    --border-mid:#2E3450;
+
+    --accent-purple:#7C5CFC;
+    --accent-blue:#4A7CFF;
+    --accent-cyan:#35D4C7;
+
+    --text-primary:#E8ECF8;
+    --text-secondary:#6A739A;
+    --text-muted:#3C4260;
+
+    --accent-amber:#F0A030;
+    --accent-green:#34C759;
+    --accent-red:#FF3B30;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    background:var(--bg-deep);
+    color:var(--text-primary);
+    font-family:Segoe UI, Inter, Arial, sans-serif;
+    line-height:1.6;
+}
+
+.container{
+    width:min(1200px,92%);
+    margin:auto;
+}
+
+/* ── Header ── */
+.site-header{
+    border-bottom:1px solid var(--border-subtle);
+    padding:24px 0;
+    background:
+        radial-gradient(circle at top left,
+            rgba(124,92,252,.20),
+            transparent 55%),
+        var(--bg-deep);
+}
+
+.site-header .container{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:20px;
+    flex-wrap:wrap;
+}
+
+.site-header h1{
+    font-size:1.8rem;
+}
+
+.gradient-text{
+    background:linear-gradient(135deg,#7C5CFC,#4A7CFF);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+.site-header nav{
+    display:flex;
+    gap:24px;
+}
+
+.site-header nav a{
+    color:var(--text-secondary);
+    text-decoration:none;
+    font-weight:600;
+    transition:.25s;
+}
+
+.site-header nav a:hover{
+    color:var(--text-primary);
+}
+
+/* ── Sections ── */
+.section{
+    padding:70px 0;
+}
+
+.section-title{
+    text-align:center;
+    font-size:2.3rem;
+    margin-bottom:20px;
+}
+
+.section-text{
+    text-align:justify;
+    max-width:800px;
+    margin:auto;
+    color:var(--text-secondary);
+}
+.section-text p {
+    margin: 0 0 12px 0;
+	
+a#active { color: yellow; }
+}
+
+/* ── Image blocks ── */
+.image-block{
+    margin-top:50px;
+}
+
+.image-block + .image-block{
+    margin-top:40px;
+}
+
+.image-text{
+    text-align:center;
+    max-width:1100px;
+    margin:0 auto 20px;
+    color:var(--text-secondary);
+}
+
+.image-frame{
+    border:1px solid var(--border-mid);
+    border-radius:18px;
+    overflow:hidden;
+    box-shadow:0 20px 60px rgba(124,92,252,0.15);
+    background:linear-gradient(135deg,#1C1F35,#12141F,#0E1019);
+}
+
+.image-frame img{
+    width:100%;
+    height:auto;
+    display:block;
+}
+
+/* ── Footer ── */
+footer{
+    border-top:1px solid var(--border-subtle);
+    padding:30px 0;
+    text-align:center;
+    color:var(--text-muted);
+}
+    </style>
+</head>
+<body>
+
+<!-- ══════════════ HEADER ══════════════ -->
+<header class="site-header">
+    <div class="container">
+        <h1><span class="gradient-text">HaloPoint 3.0</span></h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="index.html#examples">Examples</a>
+            <a href="assets/manual.pdf">Manual</a>
+        </nav>
+    </div>
+</header>
+
+<!-- ══════════════ CONTENT ══════════════ -->
+<section class="section">
+    <div class="container">
+        <h2 class="section-title">Example 3 — Multiple Scattering Halos</h2>
+        <div class="section-text">
+            <p>On 25 November Sami Härmä photographed an impressive display in the Naapurivaara village of Sotkamo, Finland, and in the photos he published in <a id="active" href="https://www.taivaanvahti.fi/observations/show/95033" target="_blank">Taivaanvahti</a> people thought of seeing fuzzy spots reminiscent of the Borlänge parhelion-tangent arcs. Single photos didn't respond well to enhancing, so it was good there were some with similar enough composition and taken with sufficient time between them to do stacks. These stacks seem indeed to confirm the presence of the parhelion-tangent arcs.</p>
+
+<p>And there may be more. In the stacks both Wegener arc and uppervex Hastings arc materialized, and in addition to having the parhelion-tangent arc enhancements in the expected location on Wegener arc, it looks like the Hastings might have its own enhancements, too: a parhelion-Parry arc. This would be a novel halo, though in the light of this new wisdom, one might see it now also in the Borlänge display on the right side.</p>
+
+<p>If we consider the prospects of parhelion-Parry arc purely from the perspective of sun elevation, then the Sotkamo display comes out more favourably. That's because the lower sun elevation of 4.5 degrees in Sotkamo gives, all else being equal, a brighter Parry than the 6.0 degrees for those Magnus Edbäck photos of the Borlänge display in the link above.</p>
+
+<p>The display occurred 6 km from the slopes. Härmä tells the temperature was around -7 C, right in the -5 to -10 C range where the most massive snow gun displays are forged. The fact that it was cloudy before the display appeared and that it was soon finished by clouds taking over again, tells this was a punch hole cloud display – particles from snow gunning turning a small area of low hanging stratus into ice crystals.
+        </p>
+		
+		<p>The analysis and text by Marko Riikonen. See the full story <a id="active" href="https://thehalovault.blogspot.com/2020/12/two-years-ago-halo-community-got-its.html" target="_blank">here</a>.
+        </p>
+</div>
+        <!-- Image 1 -->
+        <div class="image-block">
+            <p class="image-text">
+                In the image below, the enhanced two-frame composition photograph on the left and the simulation of the right. Notice the brightnenings on Wegener and Hastings arcs -- these are the multiple scattering features, namely the upper tangent arc and Parry arc of parhelion. Notable mentions in the Sotkamo display are of course the uppervex Hastings that is a great catch in a solar display, the third one on record, and the outstanding Ounasvaara arc (see the photos in Taivaanvahti), which is likewise the third known solar case. 
+            </p>
+            <div class="image-frame">
+                <img src="figs/ex31.jpg" alt="First image" width="1200" height="400">
+            </div>
+        </div>
+
+        <!-- Image 2 -->
+        <div class="image-block">
+            <p class="image-text">
+                The raypath responsible for the Parry arc of a parhelion. The distance between the two crystals is short only for illustration purposes.
+            </p>
+            <div class="image-frame">
+                <img src="figs/ex32.jpg" alt="Second image" width="1200" height="400">
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<footer>
+    Jukka Ruoskanen -- HaloPoint 3.0 &copy; 2026
+</footer>
+
+</body>
+</html>
