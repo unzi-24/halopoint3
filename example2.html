@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HaloPoint 3.0</title>
+    <style>
+:root{
+    --bg-deep:#0A0B10;
+    --bg-panel:#0F1118;
+    --bg-input:#181D2E;
+
+    --border-subtle:#22273A;
+    --border-mid:#2E3450;
+
+    --accent-purple:#7C5CFC;
+    --accent-blue:#4A7CFF;
+    --accent-cyan:#35D4C7;
+
+    --text-primary:#E8ECF8;
+    --text-secondary:#6A739A;
+    --text-muted:#3C4260;
+
+    --accent-amber:#F0A030;
+    --accent-green:#34C759;
+    --accent-red:#FF3B30;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    background:var(--bg-deep);
+    color:var(--text-primary);
+    font-family:Segoe UI, Inter, Arial, sans-serif;
+    line-height:1.6;
+}
+
+.container{
+    width:min(1200px,92%);
+    margin:auto;
+}
+
+/* ── Header ── */
+.site-header{
+    border-bottom:1px solid var(--border-subtle);
+    padding:24px 0;
+    background:
+        radial-gradient(circle at top left,
+            rgba(124,92,252,.20),
+            transparent 55%),
+        var(--bg-deep);
+}
+
+.site-header .container{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:20px;
+    flex-wrap:wrap;
+}
+
+.site-header h1{
+    font-size:1.8rem;
+}
+
+.gradient-text{
+    background:linear-gradient(135deg,#7C5CFC,#4A7CFF);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+.site-header nav{
+    display:flex;
+    gap:24px;
+}
+
+.site-header nav a{
+    color:var(--text-secondary);
+    text-decoration:none;
+    font-weight:600;
+    transition:.25s;
+}
+
+.site-header nav a:hover{
+    color:var(--text-primary);
+}
+
+/* ── Sections ── */
+.section{
+    padding:70px 0;
+}
+
+.section-title{
+    text-align:center;
+    font-size:2.3rem;
+    margin-bottom:20px;
+}
+
+.section-text{
+    text-align:justify;
+    max-width:800px;
+    margin:auto;
+    color:var(--text-secondary);
+}
+.section-text p {
+    margin: 0 0 12px 0;
+}
+
+/* ── Image blocks ── */
+.image-block{
+    margin-top:50px;
+}
+
+.image-block + .image-block{
+    margin-top:40px;
+}
+
+.image-text{
+    text-align:center;
+    max-width:1100px;
+    margin:0 auto 20px;
+    color:var(--text-secondary);
+}
+
+.image-frame{
+    border:1px solid var(--border-mid);
+    border-radius:18px;
+    overflow:hidden;
+    box-shadow:0 20px 60px rgba(124,92,252,0.15);
+    background:linear-gradient(135deg,#1C1F35,#12141F,#0E1019);
+}
+
+.image-frame img{
+    width:100%;
+    height:auto;
+    display:block;
+}
+
+/* ── Footer ── */
+footer{
+    border-top:1px solid var(--border-subtle);
+    padding:30px 0;
+    text-align:center;
+    color:var(--text-muted);
+}
+    </style>
+</head>
+<body>
+
+<!-- ══════════════ HEADER ══════════════ -->
+<header class="site-header">
+    <div class="container">
+        <h1><span class="gradient-text">HaloPoint 3.0</span></h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="index.html#examples">Examples</a>
+            <a href="assets/manual.pdf">Manual</a>
+        </nav>
+    </div>
+</header>
+
+<!-- ══════════════ CONTENT ══════════════ -->
+<section class="section">
+    <div class="container">
+        <h2 class="section-title">Example 2 — Pyramid Crystal Halos</h2>
+        <div class="section-text">
+            <p>This is an example of the challenges that halo dsiplays in the sky pose to the simulator. To correctly capture the halo forms, their respective intensities, and the right degree of blurriness, one needs more than a single population of ice crystals. It would be tempting, and perhaps  physically correct, to try to cope with as few ice crystal populations as possible — but in this case four different ice crystal populations were needed.  </p>
+
+<p>Two of the four populations have pyramidal ends and two are ordinary prisms with plate- and random orientations. One of the pyramidal populations is randomly oriented, the other is a poorly oriented plate population. It is difficult to make the 23° plate arc as diffuse as it appears in the photograph. The 24° lower plate arc is quite strong, but no more than a patch of light. Striking a balance between brightness and shape takes a fair amount of tilt, along with adjustments to the crystal face areas — tuned by tweaking the hexagonal cross-sections and the pyramid heights.</p>
+
+<p>The simulation is a decent, but by no means a perfect match with the photo. For example, the weak brightenings on the sides of the 9° and 20° halos have not been addressed in the simulation. What kind of a population is still missing?</p>
+
+</div>
+        <!-- Image 1 -->
+        <div class="image-block">
+            <p class="image-text">
+                On the left is the unsharp-masked photo, on the right the simulation. The ice crystals in the high clouds are not evenly distributed, and some of the brightness variation comes from this. For the most part, though, it is the shapes and proportions of the different ice crystal types that govern the respective brightnesses and forms of the halos — and that is the clue one tries to use to get the ice crystals right in the simulation.
+            </p>
+            <div class="image-frame">
+                <img src="figs/ex21.jpg" alt="First image" width="1200" height="400">
+            </div>
+        </div>
+
+        
+
+    </div>
+</section>
+
+<footer>
+    Jukka Ruoskanen -- HaloPoint 3.0 &copy; 2026
+</footer>
+
+</body>
+</html>
