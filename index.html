@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HaloPoint 3.0</title>
+    <style>
+:root{
+    --bg-deep:#0A0B10;
+    --bg-panel:#0F1118;
+    --bg-input:#181D2E;
+
+    --border-subtle:#22273A;
+    --border-mid:#2E3450;
+
+    --accent-purple:#7C5CFC;
+    --accent-blue:#4A7CFF;
+    --accent-cyan:#35D4C7;
+
+    --text-primary:#E8ECF8;
+    --text-secondary:#6A739A;
+    --text-muted:#3C4260;
+
+    --accent-amber:#F0A030;
+    --accent-green:#34C759;
+    --accent-red:#FF3B30;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    background:var(--bg-deep);
+    color:var(--text-primary);
+    font-family:Segoe UI, Inter, Arial, sans-serif;
+    line-height:1.6;
+}
+
+.container{
+    width:min(1200px,92%);
+    margin:auto;
+}
+
+/* ── Hero ── */
+.hero{
+    min-height:70vh;
+    display:flex;
+    align-items:center;
+    position:relative;
+    overflow:hidden;
+    background:
+        radial-gradient(circle at top left,
+            rgba(124,92,252,.25),
+            transparent 45%),
+        radial-gradient(circle at bottom right,
+            rgba(74,124,255,.18),
+            transparent 40%),
+        var(--bg-deep);
+}
+
+.hero-content{
+    max-width:750px;
+    padding:80px 0;
+}
+
+.hero h1{
+    font-size:4rem;
+    line-height:1.1;
+    margin-bottom:20px;
+}
+
+.gradient-text{
+    background:linear-gradient(135deg,#7C5CFC,#4A7CFF);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+.hero p{
+    color:var(--text-secondary);
+    font-size:1.2rem;
+    margin-bottom:30px;
+}
+
+.button-row{
+    display:flex;
+    gap:15px;
+    flex-wrap:wrap;
+}
+
+/* ── Buttons ── */
+.btn{
+    padding:14px 28px;
+    border-radius:12px;
+    text-decoration:none;
+    font-weight:600;
+    transition:.25s;
+    cursor:pointer;
+}
+
+.btn-primary{
+    background:linear-gradient(135deg,#7C5CFC,#4A7CFF);
+    color:white;
+    border:none;
+}
+
+.btn-secondary{
+    border:1px solid var(--border-mid);
+    color:var(--text-primary);
+    background:var(--bg-panel);
+}
+
+.btn:hover{
+    transform:translateY(-2px);
+}
+
+/* ── Sections ── */
+.section{
+    padding:90px 0;
+}
+
+.section-title{
+    text-align:center;
+    font-size:2.3rem;
+    margin-bottom:20px;
+}
+
+.section-text{
+    text-align:center;
+    max-width:900px;
+    margin:auto;
+    color:var(--text-secondary);
+}
+
+.section-text p {
+    margin: 0 0 12px 0;
+}
+
+/* ── Feature cards ── */
+.features-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:24px;
+    margin-top:50px;
+}
+
+.card{
+    background:linear-gradient(135deg,#1C1F35 0%,#12141F 55%,#0E1019 100%);
+    border:1px solid;
+    border-image:linear-gradient(135deg,#3A3260,#1E2238,#1A1E30) 1;
+    border-radius:18px;
+    padding:28px;
+}
+
+.card h3{
+    margin-bottom:12px;
+    color:var(--accent-cyan);
+}
+
+.card p{
+    color:var(--text-secondary);
+}
+
+/* ── Download panel ── */
+.download-panel{
+    background:var(--bg-panel);
+    border:1px solid var(--border-mid);
+    border-radius:24px;
+    padding:50px;
+    text-align:center;
+}
+
+.download-panel p{
+    color:var(--text-secondary);
+    margin:20px 0 30px;
+}
+
+a#active { color: yellow; }
+
+/* ── Examples grid ── */
+.examples-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+    gap:24px;
+    margin-top:50px;
+}
+
+.example-card{
+    background:linear-gradient(135deg,#1C1F35,#12141F,#0E1019);
+    border:1px solid var(--border-mid);
+    border-radius:18px;
+    overflow:hidden;
+    transition:.25s;
+    /* reset <a> defaults */
+    display:block;
+    text-decoration:none;
+    color:inherit;
+}
+
+.example-card:hover{
+    transform:translateY(-3px);
+    border-color:var(--accent-purple);
+    box-shadow:0 8px 32px rgba(124,92,252,.18);
+}
+
+
+.example-thumb img{
+    width:100%;
+    object-fit:cover;
+    display:block;
+}
+
+.example-thumb svg{
+    display:block;
+    margin:40px auto;
+    opacity:.25;
+}
+
+.example-content{
+    padding:28px 32px 32px;
+}
+
+.example-content h3{
+    margin-bottom:10px;
+    color:var(--accent-cyan);
+}
+
+.example-content p{
+    color:var(--text-secondary);
+    font-size:.95rem;
+}
+
+/* ── Hero layout ── */
+.hero-layout{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:60px;
+}
+
+.hero-text{
+    flex:1 1 65%;
+    min-width:600px;
+}
+
+.hero-image img{
+    flex:0 0 450px;
+    width:520px;
+    border-radius:20px;
+    display:block;
+    border:1px solid var(--border-mid);
+    box-shadow:0 20px 60px rgba(124,92,252,0.15);
+}
+
+/* ── Footer ── */
+footer{
+    border-top:1px solid var(--border-subtle);
+    padding:30px 0;
+    text-align:center;
+    color:var(--text-muted);
+}
+
+/* ── Responsive ── */
+@media (max-width:900px){
+    .hero-layout{
+        flex-direction:column;
+    }
+
+    .hero-image img{
+        width:100%;
+        max-width:500px;
+    }
+
+    .hero h1{
+        font-size:2.8rem;
+    }
+}
+    </style>
+</head>
+<body>
+
+<!-- ══════════════ HERO ══════════════ -->
+<section class="hero">
+    <div class="container">
+        <div class="hero-content">
+            <div class="hero-layout">
+                <div class="hero-text">
+                    <h1>
+                        <span class="gradient-text">HaloPoint 3.0</span>
+                    </h1>
+                    <p>
+                        GPU accelerated software for simulating atmospheric ice crystal halos.
+                    </p>
+                    <div class="button-row">
+                        <a href="downloads/HaloPoint3_software.zip" class="btn btn-primary">
+                            Download Software
+                        </a>
+                        <a href="downloads/halopoint3_manual.pdf" class="btn btn-secondary">
+                            PDF Manual
+                        </a>
+                        <a href="#examples" class="btn btn-secondary">
+                            View Examples
+                        </a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <img src="figs/screenshot.png" alt="Software screenshot">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ══════════════ INTRODUCTION ══════════════ -->
+<section class="section">
+    <div class="container">
+        <h2 class="section-title">Introduction</h2>
+        <div class="section-text">
+            <p>HaloPoint 3.0 is a simulation tool for ice crystal halos — a fascinating family of atmospheric optical phenomena. Dozens of distinct halo forms are known because the various shapes and orientations of tiny hexagonal ice prisms allow light to take numerous different paths in an encounter with a crystal, ranging from simple refraction paths through a wedge to complex ray paths involving several internal reflections. HaloPoint 3.0 traces these paths for both convex and non-convex ice crystals, projecting the resulting halos onto the celestial sphere.</p> 
+			<p>The interface is designed to be intuitive, giving you control over simulation parameters so you can closely match a real halo photograph. For deeper investigation, the built-in analysis feature lets you inspect the ray paths responsible for any given halo in detail. See the Features section to learn more, or jump straight to the User Manual.</p>
+        </div>
+    </div>
+</section>
+
+<!-- ══════════════ FEATURES ══════════════ -->
+<section class="section">
+    <div class="container">
+        <h2 class="section-title">Main Features</h2>
+        <div class="features-grid">
+            <div class="card">
+                <h3>High Performance</h3>
+                <p>
+                    Optimized algorithms and GPU acceleration enable the software to trace millions of light rays through ice crystals per second. HaloPoint 3.0 also supports simulation of multiple-scattering halo phenomena.
+                </p>
+            </div>
+            <div class="card">
+                <h3>Ice Crystal Shapes</h3>
+                <p>
+                    HaloPoint 3.0 handles standard hexagonal ice crystals as well as arbitrary non-convex shapes defined by the user, in both single- and multiple-scattering simulations. Crystal dimensions are sampled from probability distributions according to the users instructions.
+                </p>
+            </div>
+            <div class="card">
+                <h3>Advanced Visualization</h3>
+                <p>
+                    With HaloPoint 3.0 it is possible to visualize the ice crystal orientations and shapes and draw an image of the light path through the crystal for each point in the simulation.
+                </p>
+            </div>
+            <div class="card">
+                <h3>Advanced Analysis</h3>
+                <p>
+                    A rich set of ray path filtering tools lets you isolate and closely examine specific halo forms within a simulation. Each dot in the simulation image can be traced back to its exact ray path through the crystal.
+                </p>
+            </div>
+            <div class="card">
+                <h3>Parameter Tuning</h3>
+                <p>
+                    Every variable governing crystal dimensions, shape, and orientation can be set to vary according to a uniform or normal distribution, with a user-defined interval or standard deviation. All interface settings and parameter values can be saved and reloaded at any time.
+                </p>
+            </div>
+            <div class="card">
+                <h3>Simulation Appearance</h3>
+                <p>
+                    Simulations can be run using the full colour spectrum, a selection of specific wavelengths, or in black and white. The number of shade levels for halo point output is configurable from 1 to 65536.
+                </p>
+            </div>
+            <div class="card">
+                <h3>Realistic Field of View</h3>
+                <p>
+                    Match the simulation's perspective to a real photograph by specifying the lens focal length, camera sensor size, and the image center point in the sky. For precise alignment, a custom projection can be defined using user-supplied coefficients for a radial mapping function.
+                </p>
+            </div>
+            <div class="card">
+                <h3>Batch Processing</h3>
+                <p>
+                    With HaloPoint 3.0 series of simulations can be run. Just queue up a series of simulation runs and let the software work through them unattended.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ══════════════ EXAMPLES ══════════════ -->
+<section class="section" id="examples">
+    <div class="container">
+        <h2 class="section-title">Examples</h2>
+        <p class="section-text">
+            Practical applications and workflow demonstrations.
+        </p>
+        <div class="examples-grid">
+
+            <a class="example-card" href="example1.html">
+				<div class="example-thumb">
+					<img src="figs/example1.png" alt="blue circle simulation">
+				</div>
+				<div class="example-content">
+					<h3>Blue Circle</h3>
+					<p>
+						Blue circle is a beautiful feature that can usually be seen as blue spots on a parhelic circle. Click here and find out more!
+					</p>
+				</div>
+			</a>
+
+            <a class="example-card" href="example2.html">
+                <div class="example-thumb">
+                    <img src="figs/example2.png" alt="pyramids simulation">
+                </div>
+                <div class="example-content">
+                    <h3>Pyramid Crystal Halos</h3>
+                    <p>
+                        A display where eight concentric halo rings can be seen in a single photograph. Usually the 22-24° area is one diffuse ring of light, but in this display the halos can be separated from each other. Is that repeatable in simulation?
+                    </p>
+                </div>
+            </a>
+
+            <a class="example-card" href="example3.html">
+                <div class="example-thumb">
+                    <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="4" y="4" width="40" height="40" rx="6" stroke="#6A739A" stroke-width="2"/>
+                        <circle cx="24" cy="24" r="10" stroke="#6A739A" stroke-width="2"/>
+                        <line x1="24" y1="4" x2="24" y2="44" stroke="#6A739A" stroke-width="1" stroke-dasharray="3 3"/>
+                        <line x1="4" y1="24" x2="44" y2="24" stroke="#6A739A" stroke-width="1" stroke-dasharray="3 3"/>
+                    </svg>
+                </div>
+                <div class="example-content">
+                    <h3>Example 3</h3>
+                    <p>
+                        Description of advanced processing, visualization or reporting features.
+                    </p>
+                </div>
+            </a>
+
+        </div>
+    </div>
+</section>
+
+<!-- ══════════════ DOWNLOADS ══════════════ -->
+<section class="section">
+    <div class="container">
+        <div class="download-panel">
+            <h2>Downloads</h2>
+            <p>Get the software package and user manual.</p>
+            <div class="button-row" style="justify-content:center;">
+                <a href="downloads/HaloPoint3_software.zip" class="btn btn-primary">
+                    Download HaloPoint 3.0
+                </a>
+                <a href="downloads/halopoint3_manual.pdf" class="btn btn-secondary">
+                    Open PDF Manual
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ══════════════ NOTICES AND FURTHER READING ══════════════ -->
+<section class="section">
+    <div class="container">
+        <div class="download-panel">
+            <h2>Notices</h2>
+            <p>HaloPoint 3.0 is a free software, and intended for personal use. You may not
+redistribute or sell this software in websites or by any
+other means. HaloPoint 3.0 is available for download
+in the hope that it will be useful, but it comes without
+any warranty. Extensive testing and validating measures have been taken to ensure correctness of the
+simulations, but since the code has been written as a
+hobby and not by a professional software developer,
+there may lurk some yet unidentified errors within the
+software. Users are encouraged to report all software
+faults and exceptions to the following email address (replace w with a dot):
+halopointw3 at outlookwcom. Please, acknowledge the
+use of HaloPoint 3.0 in publications and websites and
+use the following reference in your publications:
+HaloPoint 3.0 -- 
+https://unzi-24.github.io/halopoint3/</p>
+            
+			<h2>Suggestions for further reading</h2>
+            <p>A few recommendations for those who want to explore halos further. Walter Tape’s Atmospheric Halos
+(American Geophysical Union, 1994) and its succes-
+sor, Atmospheric Halos and the Search for Angle X
+by Tape and Jarmo Moilanen (American Geophysical
+Union, 2006), are excellent treatments of the subject.
+Finnish readers also have Marko Riikonen’s fine Halot:
+Jääkidepilvien valoilmiöt (Ursa, 2011). Finally, Skywarden observation service maintained by Ursa Astronomical Association at <a id="active" href="https://www.taivaanvahti.fi/">Taivaanvahti - Skywarden</a> 
+collects sightings and photographs from observers —
+a good place to see what these simulations are really
+trying to reproduce.</p>
+        </div>
+    </div>
+</section>
+
+<footer>
+    Jukka Ruoskanen -- HaloPoint 3.0 &copy; 2026
+</footer>
+
+</body>
+</html>
