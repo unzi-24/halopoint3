@@ -179,6 +179,18 @@ body{
 
 a#active { color: yellow; }
 
+/* ── Last-updated caption under download button ── */
+.last-commit{
+    margin-top:14px;
+    font-size:.85rem;
+    color:var(--text-secondary);
+    min-height:1.2em; /* reserve space so layout doesn't shift when text loads */
+}
+
+.last-commit .commit-label{
+    color:var(--text-muted);
+}
+
 /* ── Examples grid ── */
 .examples-grid{
     display:grid;
@@ -304,6 +316,9 @@ footer{
                             View Examples
                         </a>
                     </div>
+                    <p class="last-commit" id="lastCommit">
+                        <span class="commit-label">Last updated:</span> <span id="lastCommitDate">checking…</span>
+                    </p>
                 </div>
                 <div class="hero-image">
                     <img src="figs/screenshot.png" alt="Software screenshot">
@@ -487,6 +502,41 @@ trying to reproduce.</p>
 <footer>
     Jukka Ruoskanen -- HaloPoint 3.0 &copy; 2026
 </footer>
+
+<script>
+// Fetch the date of the latest commit to the repository and show it under the
+// Download button.  Uses the public GitHub REST API (no auth needed for public
+// repos).  If the request fails for any reason, the line is hidden so it never
+// shows a broken/raw state to the user.
+(function () {
+    var REPO = "unzi-24/halopoint3";
+    var url = "https://api.github.com/repos/" + REPO + "/commits?per_page=1";
+
+    var dateEl = document.getElementById("lastCommitDate");
+    var wrapEl = document.getElementById("lastCommit");
+    if (!dateEl || !wrapEl) return;
+
+    fetch(url, { headers: { "Accept": "application/vnd.github+json" } })
+        .then(function (res) {
+            if (!res.ok) throw new Error("GitHub API " + res.status);
+            return res.json();
+        })
+        .then(function (commits) {
+            if (!Array.isArray(commits) || commits.length === 0)
+                throw new Error("no commits");
+            var iso = commits[0].commit.committer.date; // e.g. "2026-06-20T14:32:10Z"
+            var d = new Date(iso);
+            var formatted = d.toLocaleDateString(undefined, {
+                year: "numeric", month: "long", day: "numeric"
+            });
+            dateEl.textContent = formatted;
+        })
+        .catch(function () {
+            // Hide the whole line on any failure rather than showing "checking…".
+            wrapEl.style.display = "none";
+        });
+})();
+</script>
 
 </body>
 </html>
