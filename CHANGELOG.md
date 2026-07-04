@@ -12,7 +12,7 @@ All notable changes to **HaloPoint 3.0** are documented here.
   highlighting). Selection mode set to `Extended`. Multiple paths can be selected at once by holding Ctrl or Shift while clicking rows, in which case the highlighted dots are the union of all selected paths, while the crystal illustration and Ray dropdown continue to follow the most recently clicked row.
 
 ### Fixed
-- 2026-07-04 -- Pyramid apex angle was restricted to 0-90 degrees; now values beyween 0 and 179.999 are allowed.
+- 2026-07-04 -- Pyramid apex angle was restricted to 0-90 degrees; now values beyween 0.001 and 179.999 are allowed.
 - 2026-06-27 -- Colatitude sampler restricted output to [90°, 180°] on both CPU and GPU paths; now covers the full [0°, 180°] range.
 - 2026-06-27 -- C6 symmetry filter on the GPU recording path now matches the CPU result.
 - 2026-06-27 -- Hidden-line raypath illustration renderer: occlusion splitting was applied
