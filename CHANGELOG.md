@@ -4,6 +4,7 @@ All notable changes to **HaloPoint 3.0** are documented here.
 
 
 ### Added
+- 2026-07-05 -- Two new celestial points added to the Image Center dropdown list, namely  `Horizon, sunside` and `Horizon, opposite side`.
 - 2026-06-26 -- Laplacian orientation distribution (`Laplacian = 2`), CPU and GPU paths. Suggested by Marko Riikonen and inspired by Jiajie Zhang (LoveDaisy).
 
 ### Changed
